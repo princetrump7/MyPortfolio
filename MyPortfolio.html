@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Appiah | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #00ff9d; /* Neon Green */
+            --secondary-color: #bb86fc; /* Light Purple */
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, #2a2a2a 0%, #121212 70%);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+            background-size: 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- CARDS FOR SKILLS & PROJECTS --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: white;
+            word-wrap: break-word;
+        }
+
+        .card a {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .card a:hover {
+            color: var(--secondary-color);
+        }
+
+        .card .language {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: #121212;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 5px;
+            align-self: center;
+        }
+
+        /* --- SHOW MORE BUTTON --- */
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .show-more-btn {
+            display: none; /* Hidden by default until JS runs */
+            background-color: var(--accent-color);
+            color: #121212;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 1rem;
+        }
+
+        .show-more-btn:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+
+        /* Utility class to hide projects initially */
+        .hidden-project {
+            display: none;
+        }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact-container {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #121212;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Mobile Fix */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <nav>
+        <a href="#top" class="logo">PTA</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <p>Hello, I am</p>
+        <h1><span class="highlight">Prince Appiah</span></h1>
+        <p>Aspiring Developer from Ghana Communication and Technology University.</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I am a student currently studying Computer Science. To be honest, I don't even know exactly what I want to specialize in yet, but I am learning every day. I'm building this from Collins' house!</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>HTML, CSS, and JavaScript for building responsive websites.</p>
+            </div>
+            <div class="card">
+                <h3>Python</h3>
+                <p>Writing clean and efficient Python code for various applications.</p>
+            </div>
+            <div class="card">
+                <h3>C++</h3>
+                <p>Systems programming and performance-critical applications.</p>
+            </div>
+            <div class="card">
+                <h3>Linux</h3>
+                <p>Command-line proficiency and Linux system administration.</p>
+            </div>
+            <div class="card">
+                <h3>Bash</h3>
+                <p>Shell scripting and automation for efficient workflows.</p>
+            </div>
+            <div class="card">
+                <h3>Docker</h3>
+                <p>Containerization and deployment of applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid-container" id="projects-container">
+            <p style="text-align: center; color: #aaa;">Loading projects from GitHub...</p>
+        </div>
+        
+        <div class="btn-container">
+            <button id="show-more-btn" class="show-more-btn">Show More Projects</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <p>Want to hire me? Or just say hi?</p>
+            <br>
+            <p><strong>Email:</strong> princetrump7@gmail.com</p>
+            <p><strong>Tel:</strong> 0557786639</p>
+            <a href="mailto:princetrump7@gmail.com" class="contact-btn">Send Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Prince Appiah. Built with confusion and coffee.</p>
+    </footer>
+
+    <script>
+        const GITHUB_USERNAME = "princetrump7";
+        const PROJECTS_CONTAINER = document.getElementById("projects-container");
+        const SHOW_MORE_BTN = document.getElementById("show-more-btn");
+        const PROJECTS_TO_SHOW_INITIALLY = 3; // Change this number to show more/less initially
+
+        async function fetchGitHubProjects() {
+            try {
+                // Fetches up to 12 repos so the button has something to reveal
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=12`);
+                const repos = await response.json();
+
+                if (!Array.isArray(repos)) {
+                    throw new Error("Invalid response from GitHub API");
+                }
+
+                PROJECTS_CONTAINER.innerHTML = ""; // Clear loading text
+
+                repos.forEach((repo, index) => {
+                    const card = document.createElement("div");
+                    card.className = "card";
+                    
+                    // If the index is higher than our initial count, add the hidden class
+                    if (index >= PROJECTS_TO_SHOW_INITIALLY) {
+                        card.classList.add("hidden-project");
+                    }
+
+                    card.innerHTML = `
+                        <h3>${repo.name}</h3>
+                        <p>${repo.description || "No description provided"}</p>
+                        ${repo.language ? `<div class="language">${repo.language}</div>` : ""}
+                        <a href="${repo.html_url}" target="_blank">View on GitHub →</a>
+                    `;
+                    PROJECTS_CONTAINER.appendChild(card);
+                });
+
+                // Logic to show/hide the "Show More" button
+                if (repos.length > PROJECTS_TO_SHOW_INITIALLY) {
+                    SHOW_MORE_BTN.style.display = "inline-block";
+                    
+                    // Add Click Event
+                    SHOW_MORE_BTN.addEventListener("click", () => {
+                        const hiddenProjects = document.querySelectorAll(".hidden-project");
+                        hiddenProjects.forEach(project => {
+                            project.style.display = "flex"; // Reveal them
+                            // Optional: Add a fade-in animation here if you want
+                        });
+                        SHOW_MORE_BTN.style.display = "none"; // Hide the button after clicking
+                    });
+                }
+
+            } catch (error) {
+                PROJECTS_CONTAINER.innerHTML = `<p style="color: #ff6b6b;">Error loading projects: ${error.message}</p>`;
+                SHOW_MORE_BTN.style.display = "none";
+            }
+        }
+
+        fetchGitHubProjects();
+    </script>
+
+</body>
+</html>

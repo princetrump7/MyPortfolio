@@ -3,22 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Appiah | Portfolio</title>
+    <title>Prince Appiah — Portfolio | Software Developer & Builder</title>
+    <meta name="description" content="Portfolio of Prince Appiah — computer science student, full-stack developer, and builder of AI-powered tools, trading bots, and web applications." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://my-portfolio-xi-cyan.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Prince Appiah — Portfolio" />
+    <meta property="og:description" content="Computer science student & developer building AI tools, trading bots, and full-stack applications." />
+    <meta property="og:url" content="https://my-portfolio-xi-cyan.vercel.app/" />
+    <meta property="og:image" content="https://my-portfolio-xi-cyan.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Prince Appiah — Portfolio" />
+    <meta name="twitter:description" content="Building AI tools, trading bots, and full-stack apps." />
+
+    <meta name="theme-color" content="#121212" />
+    <meta name="author" content="Prince Appiah" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2300ff9d' rx='4'/><text y='24' font-size='18' fill='%23121212' font-family='monospace' font-weight='bold'>P</text></svg>" />
+    <link rel="alternate" type="application/rss+xml" title="Prince Appiah Portfolio" href="https://my-portfolio-xi-cyan.vercel.app/" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <!-- Analytics — uncomment and add your GA4 measurement ID to enable -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Prince Appiah",
+          "givenName": "Prince",
+          "familyName": "Appiah",
+          "jobTitle": "Software Developer & Builder",
+          "description": "Computer science student passionate about building AI-powered tools, trading bots, and full-stack web applications.",
+          "url": "https://my-portfolio-xi-cyan.vercel.app/",
+          "email": "princetrump7@gmail.com",
+          "image": "https://my-portfolio-xi-cyan.vercel.app/og-image.png",
+          "sameAs": [
+            "https://github.com/princetrump7",
+            "https://linkedin.com/in/princetrump7"
+          ],
+          "knowsAbout": ["Full-Stack Development", "AI & LLMs", "Machine Learning", "Python", "React", "Next.js", "Supabase", "Cybersecurity"]
+        },
+        {
+          "@type": "WebSite",
+          "name": "Prince Appiah — Portfolio",
+          "url": "https://my-portfolio-xi-cyan.vercel.app/",
+          "description": "Portfolio of Prince Appiah — computer science student, full-stack developer, and builder of AI-powered tools, trading bots, and web applications.",
+          "author": {
+            "@type": "Person",
+            "name": "Prince Appiah"
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         /* --- CSS VARIABLES --- */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-color: #e0e0e0;
-            --accent-color: #00ff9d; 
+            --accent-color: #00ff9d;
             --secondary-color: #bb86fc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+            .card, .hidden-project { opacity: 1 !important; transform: none !important; }
+        }
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
@@ -58,9 +136,30 @@
 
         .nav-links a:hover { color: var(--accent-color); }
 
+        /* --- HAMBURGER MENU --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            transition: 0.3s;
+            display: block;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
         /* --- HERO SECTION WITH TYPEWRITER --- */
         header {
-            height: 85vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -71,7 +170,7 @@
         }
 
         header h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        
+
         .highlight {
             color: var(--accent-color);
             text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
@@ -89,7 +188,6 @@
             50% { border-color: var(--secondary-color); }
         }
 
-        /* Resume Button Styling */
         .resume-btn {
             margin-top: 30px;
             padding: 12px 25px;
@@ -99,6 +197,7 @@
             border-radius: 30px;
             font-weight: bold;
             transition: 0.3s;
+            display: inline-block;
         }
 
         .resume-btn:hover {
@@ -137,7 +236,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center icons */
+            align-items: center;
         }
 
         .card:hover {
@@ -152,26 +251,32 @@
         }
 
         .card h3 { margin-bottom: 10px; color: white; }
-        
+
         /* --- PROJECTS & ANIMATION --- */
         .card a {
             color: var(--accent-color);
             text-decoration: none;
-            margin-top: auto; /* Pushes link to bottom */
+            margin-top: auto;
             font-size: 0.9rem;
         }
 
+        /* Use max-height + opacity for smooth reveal instead of display:none */
         .hidden-project {
-            display: none;
+            max-height: 0;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            overflow: hidden;
+            padding: 0 30px;
+            transition: max-height 0.6s ease, opacity 0.5s ease, padding 0.3s ease;
+            border: none;
+            margin: 0;
         }
 
-        /* Class to add via JS to trigger fade in */
-        .reveal-project {
+        .hidden-project.reveal-project {
+            max-height: 400px;
             opacity: 1;
-            transform: translateY(0);
+            padding: 30px;
+            border: 1px solid #333;
+            margin: 0;
         }
 
         .show-more-btn {
@@ -210,16 +315,36 @@
 
         @media (max-width: 600px) {
             header h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0;
+                background: rgba(18,18,18,0.95); flex-direction: column; padding: 20px 5%;
+                border-bottom: 1px solid #333; }
+            .nav-links.open { display: flex; }
+            .nav-links a { margin-left: 0; margin-bottom: 15px; }
         }
     </style>
 </head>
 
 <body id="top">
 
+    <!-- Skip to content link for keyboard users -->
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:8px;background:var(--accent-color);color:#121212;padding:8px 16px;z-index:9999;border-radius:4px;font-weight:bold;text-decoration:none;">Skip to main content</a>
+    <style>
+        .skip-link:focus { top: 8px; }
+        :focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .card { transition: transform 0.3s ease, border-color 0.3s, opacity 0.6s ease; }
+    </style>
+
     <nav>
-        <a href="#top" class="logo">PTA</a>
-        <div class="nav-links">
+        <a href="#top" class="logo">Prince Appiah</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links" role="navigation">
+
+
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
@@ -233,15 +358,14 @@
         <h2 style="font-size: 1.5rem; font-weight: 300; margin-top: 10px;">
             I am a <span class="typewriter-text" id="typewriter"></span>
         </h2>
-        
-        <!-- Resume link disabled until a file is uploaded -->
-        <!-- <a href="#" class="resume-btn"><i class="fas fa-download"></i> Download Resume</a> -->
+        <a href="#" class="resume-btn" id="resume-btn"><i class="fas fa-download" aria-hidden="true"></i> Download Resume</a>
     </header>
 
+    <main>
     <section id="about">
         <h2>About Me</h2>
         <div class="card" style="text-align: left; align-items: flex-start;">
-            <p>I am a student currently studying Computer Science. To be honest, I don't even know exactly what I want to specialize in yet, but I am learning every day. I'm building this from Collins' house!</p>
+            <p>Computer science student passionate about building AI-powered tools, trading bots, and full-stack web applications. I thrive at the intersection of machine learning and practical software — turning ideas into working systems. Currently exploring opportunities in AI engineering and software development.</p>
         </div>
     </section>
 
@@ -249,44 +373,44 @@
         <h2>My Toolbelt</h2>
         <div class="grid-container">
             <div class="card">
-                <i class="fab fa-html5 skill-icon"></i>
-                <h3>Web Dev</h3>
-                <p>HTML, CSS, JS</p>
-            </div>
-            <div class="card">
-                <i class="fab fa-python skill-icon"></i>
+                <i class="fab fa-python skill-icon" aria-hidden="true"></i>
                 <h3>Python</h3>
-                <p>Scripting & Logic</p>
+                <p>FastAPI, yfinance, ML</p>
             </div>
             <div class="card">
-                <i class="fas fa-microchip skill-icon"></i>
-                <h3>C++</h3>
-                <p>Systems Programming</p>
+                <i class="fab fa-js skill-icon" aria-hidden="true"></i>
+                <h3>JavaScript</h3>
+                <p>React, Node.js, Vite</p>
             </div>
             <div class="card">
-                <i class="fab fa-linux skill-icon"></i>
-                <h3>Linux</h3>
-                <p>Command Line</p>
+                <i class="fab fa-react skill-icon" aria-hidden="true"></i>
+                <h3>React</h3>
+                <p>Next.js, Radix UI, Framer</p>
             </div>
             <div class="card">
-                <i class="fas fa-terminal skill-icon"></i>
-                <h3>Bash</h3>
-                <p>Automation</p>
+                <i class="fas fa-database skill-icon" aria-hidden="true"></i>
+                <h3>Databases</h3>
+                <p>Supabase, SQLite, PostgreSQL</p>
             </div>
             <div class="card">
-                <i class="fab fa-docker skill-icon"></i>
-                <h3>Docker</h3>
-                <p>Containerization</p>
+                <i class="fab fa-linux skill-icon" aria-hidden="true"></i>
+                <h3>Linux & DevOps</h3>
+                <p>Bash, Docker, CI/CD</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-robot skill-icon" aria-hidden="true"></i>
+                <h3>AI & LLMs</h3>
+                <p>Claude API, OpenAI, RAG</p>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        <div class="grid-container" id="projects-container">
+        <div class="grid-container" id="projects-container" aria-live="polite">
             <p style="text-align: center; color: #aaa;">Fetching GitHub Repos...</p>
         </div>
-        
+
         <div class="btn-container">
             <button id="show-more-btn" class="show-more-btn">Show More Projects</button>
         </div>
@@ -295,21 +419,41 @@
     <section id="contact">
         <h2>Get In Touch</h2>
         <div class="contact-container">
-            <i class="fas fa-paper-plane" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
-            <p>Want to hire me? Or just say hi?</p>
+            <i class="fas fa-paper-plane" aria-hidden="true" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+            <p>Have a project, idea, or just want to connect?</p>
             <br>
-            <p><strong><i class="fas fa-envelope"></i></strong> princetrump7@gmail.com</p>
+            <p><strong><i class="fas fa-envelope" aria-hidden="true"></i></strong> <a href="mailto:princetrump7@gmail.com" style="color: var(--accent-color);">princetrump7@gmail.com</a></p>
             <br>
             <a href="mailto:princetrump7@gmail.com" class="resume-btn" style="display:inline-block; margin-top:10px;">Say Hello</a>
         </div>
     </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Prince Appiah. <br> <span style="font-size: 0.7rem; opacity: 0.5;">Built with confusion, coffee, and nice CSS.</span></p>
+        <p>&copy; 2026 Prince Appiah. Built with HTML, CSS &amp; JavaScript.</p>
+        <div style="margin-top: 10px;">
+            <a href="https://github.com/princetrump7" target="_blank" rel="noopener" style="color: #888; margin: 0 8px; text-decoration: none;" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://linkedin.com/in/princetrump7" target="_blank" rel="noopener" style="color: #888; margin: 0 8px; text-decoration: none;" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        </div>
     </footer>
 
     <script>
-        /* --- 1. TYPEWRITER EFFECT LOGIC --- */
+        /* --- 1. HAMBURGER MENU --- */
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+        hamburger.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            hamburger.classList.toggle("active");
+            hamburger.setAttribute("aria-expanded", isOpen);
+        });
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("open");
+            });
+        });
+
+        /* --- 2. TYPEWRITER EFFECT --- */
         const texts = ["Student.", "Developer.", "Problem Solver.", "Linux Enthusiast."];
         let count = 0;
         let index = 0;
@@ -318,7 +462,7 @@
 
         (function type() {
             if (count === texts.length) {
-                count = 0; // Loop back to start
+                count = 0;
             }
             currentText = texts[count];
             letter = currentText.slice(0, ++index);
@@ -328,23 +472,65 @@
             if (letter.length === currentText.length) {
                 count++;
                 index = 0;
-                setTimeout(type, 2000); // Pause at end of word
+                setTimeout(type, 2000);
             } else {
-                setTimeout(type, 100); // Typing speed
+                setTimeout(type, 100);
             }
         })();
 
-        /* --- 2. GITHUB FETCH WITH ANIMATION --- */
+        /* --- 3. RESUME BUTTON --- */
+        const resumeBtn = document.getElementById("resume-btn");
+        resumeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            // Resume PDF — upload a resume.pdf to the project root to enable the download
+            // Using window open to /resume.pdf as fallback; shows message if missing
+            resumeBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i>';
+            const xhr = new XMLHttpRequest();
+            xhr.open('HEAD', '/resume.pdf', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    window.open('/resume.pdf', '_blank');
+                    resumeBtn.innerHTML = '<i class="fas fa-download"></i> Download Resume';
+                } else {
+                    resumeBtn.innerHTML = '<i class="fas fa-download"></i> Download Resume';
+                    alert('Resume PDF not yet uploaded. Check back soon!');
+                }
+            };
+            xhr.onerror = function() {
+                resumeBtn.innerHTML = '<i class="fas fa-download"></i> Download Resume';
+                alert('Resume PDF not yet uploaded. Check back soon!');
+            };
+            xhr.send();
+        });
+
+        /* --- 4. GITHUB FETCH WITH CACHE & ANIMATION --- */
         const GITHUB_USERNAME = "princetrump7";
         const PROJECTS_CONTAINER = document.getElementById("projects-container");
         const SHOW_MORE_BTN = document.getElementById("show-more-btn");
         const INITIAL_SHOW = 3;
+        const CACHE_KEY = `github_repos_${GITHUB_USERNAME}`;
+        const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 
         async function fetchGitHubProjects() {
             try {
+                // Check localStorage cache first
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    const { data, timestamp } = JSON.parse(cached);
+                    if (Date.now() - timestamp < CACHE_TTL) {
+                        renderProjects(data);
+                        return;
+                    }
+                }
+
                 PROJECTS_CONTAINER.innerHTML = `<p style="text-align: center; color: #aaa;"><i class="fas fa-spinner fa-pulse"></i> Fetching GitHub Repos...</p>`;
 
-                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=12&_=${Date.now()}`);
+                // Try with a GitHub token if available (set in localStorage)
+                const token = localStorage.getItem("GITHUB_TOKEN");
+                const headers = { "Accept": "application/vnd.github.v3+json" };
+                if (token) headers["Authorization"] = `token ${token}`;
+
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=12&_=${Date.now()}`, { headers });
 
                 if (response.status === 403) {
                     throw new Error("GitHub API rate limit reached. Try again later.");
@@ -359,42 +545,12 @@
                     return;
                 }
 
-                PROJECTS_CONTAINER.innerHTML = "";
+                // Cache in localStorage
+                try {
+                    localStorage.setItem(CACHE_KEY, JSON.stringify({ data: repos, timestamp: Date.now() }));
+                } catch (_) { /* storage full — ignore */ }
 
-                repos.forEach((repo, index) => {
-                    const card = document.createElement("div");
-                    card.className = "card";
-                    if (index >= INITIAL_SHOW) {
-                        card.classList.add("hidden-project");
-                        card.style.display = "none";
-                    }
-
-                    card.innerHTML = `
-                        <i class="fas fa-code" style="font-size:1.5rem; color:#555; margin-bottom:10px;"></i>
-                        <h3>${repo.name}</h3>
-                        <p>${repo.description || "No description provided."}</p>
-                        ${repo.language ? `<span style="font-size:0.8rem; color:var(--secondary-color); margin:10px 0;">${repo.language}</span>` : ""}
-                        <a href="${repo.html_url}" target="_blank" rel="noopener">View Code <i class="fas fa-external-link-alt"></i></a>
-                    `;
-                    PROJECTS_CONTAINER.appendChild(card);
-                });
-
-                if (repos.length > INITIAL_SHOW) {
-                    SHOW_MORE_BTN.style.display = "block";
-
-                    SHOW_MORE_BTN.onclick = () => {
-                        const hiddenProjects = document.querySelectorAll(".hidden-project");
-                        hiddenProjects.forEach((project, i) => {
-                            project.style.display = "flex";
-                            setTimeout(() => {
-                                project.classList.add("reveal-project");
-                            }, i * 100);
-                        });
-                        SHOW_MORE_BTN.style.display = "none";
-                    };
-                } else {
-                    SHOW_MORE_BTN.style.display = "none";
-                }
+                renderProjects(repos);
 
             } catch (error) {
                 PROJECTS_CONTAINER.innerHTML = `<p style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle"></i> ${error.message}</p>`;
@@ -402,7 +558,60 @@
             }
         }
 
+        function renderProjects(repos) {
+            PROJECTS_CONTAINER.innerHTML = "";
+
+            repos.forEach((repo, i) => {
+                const card = document.createElement("div");
+                card.className = "card";
+                if (i >= INITIAL_SHOW) {
+                    card.classList.add("hidden-project");
+                }
+
+                card.innerHTML = `
+                    <i class="fas fa-code" aria-hidden="true" style="font-size:1.5rem; color:#555; margin-bottom:10px;"></i>
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || "No description provided."}</p>
+                    ${repo.language ? `<span style="font-size:0.8rem; color:var(--secondary-color); margin:10px 0;">${repo.language}</span>` : ""}
+                    <a href="${repo.html_url}" target="_blank" rel="noopener">View Code <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                `;
+                PROJECTS_CONTAINER.appendChild(card);
+            });
+
+            if (repos.length > INITIAL_SHOW) {
+                SHOW_MORE_BTN.style.display = "block";
+                SHOW_MORE_BTN.onclick = () => {
+                    const hidden = document.querySelectorAll(".hidden-project");
+                    hidden.forEach((project, i) => {
+                        setTimeout(() => {
+                            project.classList.add("reveal-project");
+                        }, i * 120);
+                    });
+                    SHOW_MORE_BTN.style.display = "none";
+                };
+            } else {
+                SHOW_MORE_BTN.style.display = "none";
+            }
+        }
+
         fetchGitHubProjects();
+
+        /* --- 5. ADD FADE-IN CLASS TO SECTION CARDS FIRST --- */
+        document.querySelectorAll(".card, .contact-container").forEach(el => {
+            if (!el.classList.contains("fade-in")) el.classList.add("fade-in");
+        });
+
+        /* --- 6. SCROLL REVEAL ANIMATION (IntersectionObserver) --- */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
     </script>
 
 </body>
